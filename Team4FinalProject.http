@@ -1,0 +1,6 @@
+@Team4FinalProject_HostAddress = http://localhost:5059
+
+GET {{Team4FinalProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
