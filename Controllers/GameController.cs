@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Team4FinalProject.Interfaces;
 using Team4FinalProject.Models;
-using Team4FinalProject.Data;
 
 
 namespace Team4FinalProject.Controllers
@@ -15,8 +10,8 @@ namespace Team4FinalProject.Controllers
 	public class GameController : ControllerBase
 	{
 		private readonly ILogger<GameController> _logger;
-		private readonly ApplicationDbContext _context;
-		public GameController(ILogger<GameController> logger, ApplicationDbContext context)
+		private readonly IGameContextDAO _context;
+		public GameController(ILogger<GameController> logger, IGameContextDAO context)
 		{
 			_logger = logger;
 			_context = context;
@@ -25,18 +20,48 @@ namespace Team4FinalProject.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
-			return Ok(_context.Games.ToList());
+			return Ok(_context.GetAllGames());
 		}
+		[HttpGet("id")]
+		public IActionResult GetById(int id)
+		{
+			var game = _context.GetGamebyId(id);
+            if (game == null || id == 0)
+                return NotFound(id);
+            return Ok(game);
+		}
+		/*	
+		[HttpPost]
+		
+        */
 
-        /*	
-			[HttpPost]
 
-			[HttpPut]
-		*/
+		[HttpPut]
+		public IActionResult Put(Game game)
+		{
+            var result = _context.UpdateGame(game);
+            if (result == null)
+                return NotFound(game.Id);
+
+            if (result == 0)
+                return StatusCode(500, "An error occurred while processing your request");
+
+            return Ok();
+        }
+
+
         [HttpDelete]
-        public IActionResult Delete(int id)
+		public IActionResult Delete(int id)
         {
-			var game = _context.GetGameById(id);
+			var result = _context.RemoveGameById(id);
+            if (result == null )
+                return NotFound(id);
+
+			if (result == 0)
+				return StatusCode(500, "An error occurred while processing your request");
+
+			return Ok();
+
         }
     }
 }
