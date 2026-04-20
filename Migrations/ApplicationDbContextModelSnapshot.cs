@@ -218,6 +218,66 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+/* Fill in the Language data 
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        });
+                     */
+
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.TeamMember", b =>
@@ -246,7 +306,6 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeamMembers");
-
                     b.HasData(
                         new
                         {

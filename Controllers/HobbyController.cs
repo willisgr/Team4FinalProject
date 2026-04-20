@@ -1,11 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Team4FinalProject.Models;
 using Team4FinalProject.Data;
+using Team4FinalProject.Interfaces;
+using Team4FinalProject.Models;
 
 
 namespace Team4FinalProject.Controllers
@@ -15,31 +16,83 @@ namespace Team4FinalProject.Controllers
     public class HobbyController : ControllerBase
     {
         private readonly ILogger<HobbyController> _logger;
-        private readonly ApplicationDbContext _context;
-        public HobbyController(ILogger<HobbyController> logger, ApplicationDbContext context)
+        private readonly IHobbyContextDAO _context;
+        public HobbyController(ILogger<HobbyController> logger, IHobbyContextDAO context)
         {
             _logger = logger;
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        //Create
+        // Still needs work?
+        [HttpPost]
+        public IActionResult Post(Hobby hobby)
         {
-            return Ok(_context.Hobbies.ToList());
+            var result = _context.AddHobby(hobby);
+
+            if (result == null)
+                return StatusCode(500, "Hobby already exists");
+            if (result == 0)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+            return Ok();
         }
 
-        /*	
-			[HttpPost]
+        //Read
+        [HttpGet]
+        public IActionResult GetAllHobbies()
+        {
+            return Ok(_context.GetAllHobbies());
+        }
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            var hobby = _context.GetHobbybyId(id);
+            if (hobby == null || id == 0)
+                return NotFound(id);
+            return Ok(hobby);
+        }
 
+        //Update
+        [HttpPut]
+        public IActionResult Put(Hobby hobby)
+        {
+            var result = _context.UpdateHobby(hobby);
+            if (result == null)
+                return NotFound(hobby.Id);
+
+<<<<<<< HEAD
 			[HttpPut]
 		*/
         /*
+=======
+            if (result == 0)
+                return StatusCode(500, "An error occurred while processing your request");
+
+            return Ok();
+        }
+
+        //Delete
+>>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
         [HttpDelete]
-        public IActionResult Delete(int Id) 
+        public IActionResult Delete(int id)
         {
+<<<<<<< HEAD
             var game = _context
         }
         */
+=======
+            var result = _context.RemoveHobbyById(id);
+            if (result == null)
+                return NotFound(id);
+>>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
 
+            if (result == 0)
+                return StatusCode(500, "An error occurred while processing your request");
+
+            return Ok();
+
+        }
     }
 }
