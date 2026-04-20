@@ -33,11 +33,13 @@ namespace Team4FinalProject.Controllers
 
 			[HttpPut]
 		*/
+        /*
         [HttpDelete]
         public IActionResult Delete(int Id) 
         {
             var game = _context
         }
+        */
 
     }
 }

@@ -26,31 +26,20 @@ namespace Team4FinalProject.Data
                 new Hobby { Id = 6, HobbyName = "Hiking", HobbyType = "Physical", YearsPracticed = 1, IsExpensive = false },
                 new Hobby { Id = 7, HobbyName = "Volunteering", HobbyType = "Social", YearsPracticed = 0, IsExpensive = false }
             );
-            /* Uncomment and fill in the Language data 
-                        builder.Entity<Language>().HasData(
-                            new Language { Id = 1, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 2, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 3, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 4, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 5, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 6, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true},
-                            new Language { Id = 7, Name = "", Type = "", IsTronglyTyped = true, IsCompiled = true}
-                        );
-            */
-
-            /* Uncomment and fill in your Team member info. (I prefilled mine [Robert] but I have no idea if the Birthdate is in the right format for the datetime type)
-
-
-                        builder.Entity<TeamMember>().HasData(
-                            new TeamMember { Id = 1, FullName = "William Boulle", Birthdate = "", CollegeProgram = "", YearInProgram = ""},
-                            new TeamMember { Id = 2, FullName = "Robert Mays", Birthdate(1985, 7, 20, , CollegeProgram = "MSIT", YearInProgram = "Second"},
-                            new TeamMember { Id = 3, FullName = "Grant Willis", Birthdate = "", CollegeProgram = "", YearInProgram = ""}
-                        );
+            builder.Entity<TeamMember>().HasData(
+                new TeamMember { Id = 1, FullName = "Grant Willis", Birthdate = new DateTime(2004, 10, 15), CollegeProgram = "BSIT", YearInProgram = "Junior"},
+                new TeamMember { Id = 2, FullName = "Robert Mays", Birthdate = new DateTime(1985, 7, 20), CollegeProgram = "MSIT", YearInProgram = "Second"},
+                new TeamMember { Id = 3, FullName = "William Boulle", Birthdate = new DateTime(1000, 1, 1), CollegeProgram = "", YearInProgram = ""}
+            );
+            /*
+            builder.Entity<Language>().HasData(
+                new Language {},
+            );
             */
         }
-        public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
+        public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Language> Languages { get; set; }
     }
 }
