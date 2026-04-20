@@ -62,11 +62,6 @@ namespace Team4FinalProject.Controllers
             if (result == null)
                 return NotFound(hobby.Id);
 
-<<<<<<< HEAD
-			[HttpPut]
-		*/
-        /*
-=======
             if (result == 0)
                 return StatusCode(500, "An error occurred while processing your request");
 
@@ -74,19 +69,12 @@ namespace Team4FinalProject.Controllers
         }
 
         //Delete
->>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-<<<<<<< HEAD
-            var game = _context
-        }
-        */
-=======
             var result = _context.RemoveHobbyById(id);
             if (result == null)
                 return NotFound(id);
->>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
 
             if (result == 0)
                 return StatusCode(500, "An error occurred while processing your request");

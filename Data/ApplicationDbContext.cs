@@ -6,7 +6,6 @@ namespace Team4FinalProject.Data
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
-<<<<<<< HEAD
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Game>().HasData(
@@ -38,9 +37,6 @@ namespace Team4FinalProject.Data
             );
             */
         }
-=======
-        public DbSet<TeamMember> TeamMembers { get; set; }
->>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
         public DbSet<Game> Games { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }

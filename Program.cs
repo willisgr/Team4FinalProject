@@ -13,9 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IGameContextDAO, GameContextDAO>();
-<<<<<<< HEAD
 builder.Services.AddScoped<ITeamMemberContextDAO, TeamMemberContextDAO>();
-=======
 builder.Services.AddScoped<IHobbyContextDAO, HobbyContextDAO>();
 
 // Builders for adding the Interfaces and DAOs
@@ -23,7 +21,6 @@ builder.Services.AddScoped<IHobbyContextDAO, HobbyContextDAO>();
 //builder.Services.AddScoped<IGameContextDAO, GameContextDAO>();
 
 
->>>>>>> 550d4f63c236c7e4b115bbd264089b0e308fc060
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
