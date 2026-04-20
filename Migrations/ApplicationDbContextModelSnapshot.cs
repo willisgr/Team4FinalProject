@@ -48,6 +48,64 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Games");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Developer = "Teyon",
+                            Genre = "First Person Shooter",
+                            Price = 1.0,
+                            Title = "RoboCop: Rogue City"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Developer = "System Era Softworks",
+                            Genre = "Open World Survival Craft",
+                            Price = 29.989999999999998,
+                            Title = "Astroneer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Developer = "AdHoc Studio",
+                            Genre = "Point & Click",
+                            Price = 29.989999999999998,
+                            Title = "Dispatch"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Developer = "CD PROJEKT RED",
+                            Genre = "Open World RPG",
+                            Price = 59.990000000000002,
+                            Title = "Cyberpunk 2077"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Developer = "Relic Entertainment",
+                            Genre = "WAAAAGH Real Time Strategy",
+                            Price = 29.989999999999998,
+                            Title = "Warhammer 40,000: Dawn of War - Definitive Edition"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Developer = "Youthcat Studio",
+                            Genre = "Base Building",
+                            Price = 15.99,
+                            Title = "Dyson Sphere Program"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Developer = "Blizzard Entertainment, Inc.",
+                            Genre = "Action RPG",
+                            Price = 39.990000000000002,
+                            Title = "Diablo II: Resurrected - Infernal Edition"
+                        });
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.Hobby", b =>
@@ -75,6 +133,64 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hobbies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            HobbyName = "3D Printing",
+                            HobbyType = "Digital",
+                            IsExpensive = true,
+                            YearsPracticed = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            HobbyName = "Video Games",
+                            HobbyType = "Digital",
+                            IsExpensive = true,
+                            YearsPracticed = 30
+                        },
+                        new
+                        {
+                            Id = 3,
+                            HobbyName = "Reading",
+                            HobbyType = "Intellectual",
+                            IsExpensive = false,
+                            YearsPracticed = 35
+                        },
+                        new
+                        {
+                            Id = 4,
+                            HobbyName = "Concerts",
+                            HobbyType = "Physical",
+                            IsExpensive = true,
+                            YearsPracticed = 20
+                        },
+                        new
+                        {
+                            Id = 5,
+                            HobbyName = "Traveling",
+                            HobbyType = "Physical",
+                            IsExpensive = true,
+                            YearsPracticed = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            HobbyName = "Hiking",
+                            HobbyType = "Physical",
+                            IsExpensive = false,
+                            YearsPracticed = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            HobbyName = "Volunteering",
+                            HobbyType = "Social",
+                            IsExpensive = false,
+                            YearsPracticed = 0
+                        });
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.Language", b =>
@@ -102,6 +218,66 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+/* Fill in the Language data 
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "",
+                            Type = "",
+                            IsStronglyTyped = true,
+                            IsCompiled = true
+                        });
+                     */
+
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.TeamMember", b =>
@@ -130,6 +306,33 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeamMembers");
+/* Fill in your Team member info. (I prefilled mine [Robert] but I have no idea if the Birthdate is in the right format for the datetime type)
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FullName = "William Boulle",
+                            BirthdateType = "",
+                            CollegeProgram = "",
+                            YearInProgram = ""
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FullName = "Robert D. Mays III",
+                            Birthdate = (1985, 7, 20),
+                            CollegeProgram = "MSIT",
+                            YearInProgram = "Second"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FullName = "Grant Willis",
+                            BirthdateType = "",
+                            CollegeProgram = "",
+                            YearInProgram = ""
+                        });
+                    */
                 });
 #pragma warning restore 612, 618
         }
