@@ -11,6 +11,27 @@ namespace Team4FinalProject.Data
             _context = context;
         }
 
+        //Create
+        public int? AddGame(Game game)
+        {
+            var games = _context.Games.Where(x => x.Title.Equals(game.Title) && x.Developer.Equals(game.Developer)).FirstOrDefault();
+
+            if (games != null)
+                return null;
+            try
+            {
+                _context.Games.Add(game);
+                _context.SaveChanges();
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
+        }
+
+        //Read
         public List<Game> GetAllGames()
         {
             return _context.Games.ToList();
@@ -21,22 +42,7 @@ namespace Team4FinalProject.Data
             return _context.Games.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public int? RemoveGameById(int id)
-        {
-            var game = this.GetGamebyId(id);
-            if (game == null) return null;
-            try
-            {
-                _context.Games.Remove(game);
-                _context.SaveChanges();
-                return 1;
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
-        }
-
+        //Update
         public int? UpdateGame(Game game)
         {
             var gameToUpdate = this.GetGamebyId(game.Id);
@@ -58,5 +64,23 @@ namespace Team4FinalProject.Data
                 return 0;
             }
         }
+
+        // Delete
+        public int? RemoveGameById(int id)
+        {
+            var game = this.GetGamebyId(id);
+            if (game == null) return null;
+            try
+            {
+                _context.Games.Remove(game);
+                _context.SaveChanges();
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
     }
 }

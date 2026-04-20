@@ -16,9 +16,24 @@ namespace Team4FinalProject.Controllers
 			_logger = logger;
 			_context = context;
 		}
+        //Create
+        [HttpPost]
+        public IActionResult Post(Game game)
+        {
+            var result = _context.AddGame(game);
 
-		[HttpGet]
-		public IActionResult Get()
+            if (result == null)
+                return StatusCode(500, "Game already exists");
+            if (result == 0)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+            return Ok();
+        }
+
+        //Read
+        [HttpGet]
+		public IActionResult GetAllGames()
 		{
 			return Ok(_context.GetAllGames());
 		}
@@ -30,12 +45,8 @@ namespace Team4FinalProject.Controllers
                 return NotFound(id);
             return Ok(game);
 		}
-		/*	
-		[HttpPost]
-		
-        */
 
-
+		//Update
 		[HttpPut]
 		public IActionResult Put(Game game)
 		{
@@ -49,7 +60,7 @@ namespace Team4FinalProject.Controllers
             return Ok();
         }
 
-
+		//Delete
         [HttpDelete]
 		public IActionResult Delete(int id)
         {
