@@ -31,9 +31,12 @@ While in the project folder, enter the following in terminal:
 `dotnet add Team4FinalProject.csproj package NSwag.AspNetCore --version 14.7.0`
   This will install the Swagger package to generate documentation about the OpenAPI
 
-`dotnet add Team4FinalProject.csproj package Microsoft.AspNetCore.Mvc.ViewFeatures --version 2.3.9`
-  This will install the MVC ViewFeatures for displaying web pages
-  
+`dotnet ef migrations add Initial`
+  This creates the initial database
+
+`dotnet ef database update`
+  This applies the previous pending migration to the database
+    
 Alternatively, you can run `setup.bat` which will run all the commands listed above with a 5 second pause in between each command
 
 ## Operation

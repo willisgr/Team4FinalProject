@@ -18,6 +18,11 @@ REM "Using Entity Framework to migrate an initial database"
 dotnet ef migrations add Initial
 REM "Waiting 5 seconds"
 timeout /T 5
+REM "Using Entity Frameowrk to update the database
+dotnet ef database update
+
+REM "Waiting 5 seconds"
+timeout /T 5
 
 REM "Packages installed.  Review above for any errors."
 pause
