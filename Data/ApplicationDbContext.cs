@@ -31,11 +31,16 @@ namespace Team4FinalProject.Data
                 new TeamMember { Id = 2, FullName = "Robert Mays", Birthdate = new DateTime(1985, 7, 20), CollegeProgram = "MSIT", YearInProgram = "Second"},
                 new TeamMember { Id = 3, FullName = "William Boulle", Birthdate = new DateTime(1000, 1, 1), CollegeProgram = "", YearInProgram = ""}
             );
-            /*
-            builder.Entity<Language>().HasData(
-                new Language {},
+              builder.Entity<Language>().HasData(
+                new Language { Id = 1, Name = "C#", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
+				new Language { Id = 2, Name = "Java", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
+				new Language { Id = 3, Name = "Python", Type = "Interpreted", IsStronglyTyped = false, IsCompiled = false},
+				new Language { Id = 4, Name = "JavaScript", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false},
+				new Language { Id = 5, Name = "C++", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
+				new Language { Id = 6, Name = "Go", Type = "Procedural", IsStronglyTyped = true, IsCompiled = true},
+				new Language { Id = 7, Name = "Ruby", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false}
+				
             );
-            */
         }
         public DbSet<Game> Games { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
