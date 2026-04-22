@@ -218,67 +218,64 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-                    
-                    
+
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "C#",
-                            Type = "Object-Oriented",
+                            IsCompiled = true,
                             IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "C#",
+                            Type = "Object-Oriented"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Java",
-                            Type = "Object-Oriented",
+                            IsCompiled = true,
                             IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "Java",
+                            Type = "Object-Oriented"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Python",
-                            Type = "Interpreted",
+                            IsCompiled = false,
                             IsStronglyTyped = false,
-                            IsCompiled = false
+                            Name = "Python",
+                            Type = "Interpreted"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "JavaScript",
-                            Type = "Scripting",
+                            IsCompiled = false,
                             IsStronglyTyped = false,
-                            IsCompiled = false
+                            Name = "JavaScript",
+                            Type = "Scripting"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "C++",
-                            Type = "Object-Oriented",
+                            IsCompiled = true,
                             IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "C++",
+                            Type = "Object-Oriented"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Go",
-                            Type = "Procedural",
+                            IsCompiled = true,
                             IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "Go",
+                            Type = "Procedural"
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Ruby",
-                            Type = "Scripting",
+                            IsCompiled = false,
                             IsStronglyTyped = false,
-                            IsCompiled = false
+                            Name = "Ruby",
+                            Type = "Scripting"
                         });
-                
-
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.TeamMember", b =>
@@ -307,6 +304,7 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeamMembers");
+
                     b.HasData(
                         new
                         {
