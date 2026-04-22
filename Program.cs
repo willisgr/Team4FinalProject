@@ -15,11 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IGameContextDAO, GameContextDAO>();
 builder.Services.AddScoped<ITeamMemberContextDAO, TeamMemberContextDAO>();
 builder.Services.AddScoped<IHobbyContextDAO, HobbyContextDAO>();
-
-// Builders for adding the Interfaces and DAOs
-//builder.Services.AddScoped<IGameContextDAO, GameContextDAO>();
-//builder.Services.AddScoped<IGameContextDAO, GameContextDAO>();
-
+builder.Services.AddScoped<ILanguageContextDAO, LanguageContextDAO>();
 
 var app = builder.Build();
 
