@@ -30,6 +30,10 @@ namespace Team4FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Developer")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -41,10 +45,6 @@ namespace Team4FinalProject.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Games");
@@ -53,58 +53,58 @@ namespace Team4FinalProject.Migrations
                         new
                         {
                             Id = 1,
+                            Title = "RoboCop: Rogue City",
                             Developer = "Teyon",
                             Genre = "First Person Shooter",
-                            Price = 1.0,
-                            Title = "RoboCop: Rogue City"
+                            Price = 1.0
                         },
                         new
                         {
                             Id = 2,
+                            Title = "Astroneer",
                             Developer = "System Era Softworks",
                             Genre = "Open World Survival Craft",
-                            Price = 29.989999999999998,
-                            Title = "Astroneer"
+                            Price = 29.989999999999998
                         },
                         new
                         {
                             Id = 3,
+                            Title = "Dispatch",
                             Developer = "AdHoc Studio",
                             Genre = "Point & Click",
-                            Price = 29.989999999999998,
-                            Title = "Dispatch"
+                            Price = 29.989999999999998
                         },
                         new
                         {
                             Id = 4,
+                            Title = "Cyberpunk 2077",
                             Developer = "CD PROJEKT RED",
                             Genre = "Open World RPG",
-                            Price = 59.990000000000002,
-                            Title = "Cyberpunk 2077"
+                            Price = 59.990000000000002
                         },
                         new
                         {
                             Id = 5,
+                            Title = "Warhammer 40,000: Dawn of War - Definitive Edition",
                             Developer = "Relic Entertainment",
                             Genre = "WAAAAGH Real Time Strategy",
-                            Price = 29.989999999999998,
-                            Title = "Warhammer 40,000: Dawn of War - Definitive Edition"
+                            Price = 29.989999999999998
                         },
                         new
                         {
                             Id = 6,
+                            Title = "Dyson Sphere Program",
                             Developer = "Youthcat Studio",
                             Genre = "Base Building",
-                            Price = 15.99,
-                            Title = "Dyson Sphere Program"
+                            Price = 15.99
                         },
                         new
                         {
                             Id = 7,
+                            Title = "Diablo II: Resurrected - Infernal Edition",
                             Developer = "Blizzard Entertainment, Inc.",
                             Genre = "Action RPG",
-                            Price = 39.990000000000002,
-                            Title = "Diablo II: Resurrected - Infernal Edition"
+                            Price = 39.990000000000002
                         });
                 });
 
@@ -201,12 +201,6 @@ namespace Team4FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("IsCompiled")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsStronglyTyped")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -214,6 +208,12 @@ namespace Team4FinalProject.Migrations
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCompiled")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsStronglyTyped")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -223,50 +223,50 @@ namespace Team4FinalProject.Migrations
                         new
                         {
                             Id = 1,
-                            IsCompiled = true,
-                            IsStronglyTyped = true,
                             Name = "C#",
-                            Type = "Object-Oriented"
+                            Type = "Object-Oriented",
+                            IsCompiled = true,
+                            IsStronglyTyped = true
                         },
                         new
                         {
                             Id = 2,
-                            IsCompiled = true,
-                            IsStronglyTyped = true,
                             Name = "Java",
-                            Type = "Object-Oriented"
+                            Type = "Object-Oriented",
+                            IsCompiled = true,
+                            IsStronglyTyped = true
                         },
                         new
                         {
                             Id = 3,
-                            IsCompiled = false,
-                            IsStronglyTyped = false,
                             Name = "Python",
-                            Type = "Interpreted"
+                            Type = "Interpreted",
+                            IsCompiled = false,
+                            IsStronglyTyped = false
                         },
                         new
                         {
                             Id = 4,
-                            IsCompiled = false,
-                            IsStronglyTyped = false,
                             Name = "JavaScript",
-                            Type = "Scripting"
+                            Type = "Scripting",
+                            IsCompiled = false,
+                            IsStronglyTyped = false
                         },
                         new
                         {
                             Id = 5,
+                            Name = "C++",
+                            Type = "Object-Oriented",
                             IsCompiled = true,
                             IsStronglyTyped = true,
-                            Name = "C++",
-                            Type = "Object-Oriented"
                         },
                         new
                         {
                             Id = 6,
+                            Name = "Go",
+                            Type = "Procedural",
                             IsCompiled = true,
                             IsStronglyTyped = true,
-                            Name = "Go",
-                            Type = "Procedural"
                         },
                         new
                         {
@@ -286,14 +286,14 @@ namespace Team4FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CollegeProgram")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -309,25 +309,25 @@ namespace Team4FinalProject.Migrations
                         new
                         {
                             Id = 1,
+                            FullName = "Grant Willis",
                             Birthdate = new DateTime(2004, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CollegeProgram = "BSIT",
-                            FullName = "Grant Willis",
                             YearInProgram = "Junior"
                         },
                         new
                         {
                             Id = 2,
+                            FullName = "Robert D Mays III",
                             Birthdate = new DateTime(1985, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CollegeProgram = "MSIT",
-                            FullName = "Robert Mays",
                             YearInProgram = "Second"
                         },
                         new
                         {
                             Id = 3,
+                            FullName = "William Boulle",
                             Birthdate = new DateTime(2005, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CollegeProgram = "BSIT",
-                            FullName = "William Boulle",
                             YearInProgram = "Second"
                         });
                 });
