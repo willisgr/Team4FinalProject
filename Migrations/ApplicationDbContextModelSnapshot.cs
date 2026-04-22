@@ -218,65 +218,66 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-/* Fill in the Language data 
+                    
+                    
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "",
-                            Type = "",
+                            Name = "C#",
+                            Type = "Object-Oriented",
                             IsStronglyTyped = true,
                             IsCompiled = true
                         },
                         new
                         {
                             Id = 2,
-                            Name = "",
-                            Type = "",
+                            Name = "Java",
+                            Type = "Object-Oriented",
                             IsStronglyTyped = true,
                             IsCompiled = true
                         },
                         new
                         {
                             Id = 3,
-                            Name = "",
-                            Type = "",
-                            IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "Python",
+                            Type = "Interpreted",
+                            IsStronglyTyped = false,
+                            IsCompiled = false
                         },
                         new
                         {
                             Id = 4,
-                            Name = "",
-                            Type = "",
-                            IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "JavaScript",
+                            Type = "Scripting",
+                            IsStronglyTyped = false,
+                            IsCompiled = false
                         },
                         new
                         {
                             Id = 5,
-                            Name = "",
-                            Type = "",
+                            Name = "C++",
+                            Type = "Object-Oriented",
                             IsStronglyTyped = true,
                             IsCompiled = true
                         },
                         new
                         {
                             Id = 6,
-                            Name = "",
-                            Type = "",
+                            Name = "Go",
+                            Type = "Procedural",
                             IsStronglyTyped = true,
                             IsCompiled = true
                         },
                         new
                         {
                             Id = 7,
-                            Name = "",
-                            Type = "",
-                            IsStronglyTyped = true,
-                            IsCompiled = true
+                            Name = "Ruby",
+                            Type = "Scripting",
+                            IsStronglyTyped = false,
+                            IsCompiled = false
                         });
-                     */
+                
 
                 });
 
@@ -326,10 +327,10 @@ namespace Team4FinalProject.Migrations
                         new
                         {
                             Id = 3,
-                            Birthdate = new DateTime(1000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CollegeProgram = "",
+                            Birthdate = new DateTime(2005, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "BSIT",
                             FullName = "William Boulle",
-                            YearInProgram = ""
+                            YearInProgram = "Second"
                         });
                 });
 #pragma warning restore 612, 618
