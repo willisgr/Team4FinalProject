@@ -48,10 +48,12 @@ namespace Team4FinalProject.Controllers
         [HttpGet("id")]
         public IActionResult GetById(int id)
         {
-            var hobby = _context.GetLanguagebyId(id);
-            if (hobby == null || id == 0)
-                return NotFound(id);
-            return Ok(hobby);
+            var language = _context.GetLanguagebyId(id);
+            {
+            if (language == null || id == 0)
+                return Ok(_context.GetFirstFiveLanguages());
+			}
+            return Ok(language);
         }
 
         //Update

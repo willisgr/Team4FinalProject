@@ -24,7 +24,6 @@ namespace Team4FinalProject.Controllers
         }
 
         //Create
-        // Still needs work?
         [HttpPost]
         public IActionResult Post(Hobby hobby)
         {
@@ -50,9 +49,12 @@ namespace Team4FinalProject.Controllers
         {
             var hobby = _context.GetHobbybyId(id);
             if (hobby == null || id == 0)
-                return NotFound(id);
+            {
+			    return Ok(_context.GetFirstFiveHobbies());
+			}
             return Ok(hobby);
         }
+
 
         //Update
         [HttpPut]

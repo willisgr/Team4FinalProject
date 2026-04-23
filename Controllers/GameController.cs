@@ -40,9 +40,11 @@ namespace Team4FinalProject.Controllers
 		[HttpGet("id")]
 		public IActionResult GetById(int id)
 		{
-			var game = _context.GetGamebyId(id);
+            var game = _context.GetGamebyId(id);
             if (game == null || id == 0)
-                return NotFound(id);
+            {
+                return Ok(_context.GetFirstFiveGames());
+            }
             return Ok(game);
 		}
 
