@@ -8,9 +8,9 @@ namespace Team4FinalProject.Interfaces
         int? AddLanguage(Language language);
 
         //Read
+        Language? GetLanguagebyId(int id);
         List<Language> GetAllLanguages();
-        Language GetLanguagebyId(int id);
-
+		List<Language> GetFirstFiveLanguages();
 
         // Update
         int? UpdateLanguage(Language language);

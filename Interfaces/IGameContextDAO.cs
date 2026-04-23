@@ -8,10 +8,10 @@ namespace Team4FinalProject.Interfaces
         int? AddGame(Game game);
 
         //Read
+        Game? GetGamebyId(int id);
         List<Game> GetAllGames();
-        Game GetGamebyId(int id);
+        List<Game> GetFirstFiveGames();
 
-        
         // Update
         int? UpdateGame(Game game);
 

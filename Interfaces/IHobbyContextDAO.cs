@@ -10,6 +10,7 @@ namespace Team4FinalProject.Interfaces
         //Read
         List<Hobby> GetAllHobbies();
         Hobby GetHobbybyId(int id);
+		List<Hobby> GetFirstFiveHobbies();
 
         
         // Update
