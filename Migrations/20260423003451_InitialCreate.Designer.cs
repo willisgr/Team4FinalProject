@@ -12,7 +12,7 @@ using Team4FinalProject.Data;
 namespace Team4FinalProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260420020244_InitialCreate")]
+    [Migration("20260423003451_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -221,6 +221,64 @@ namespace Team4FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsCompiled = true,
+                            IsStronglyTyped = true,
+                            Name = "C#",
+                            Type = "Object-Oriented"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsCompiled = true,
+                            IsStronglyTyped = true,
+                            Name = "Java",
+                            Type = "Object-Oriented"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsCompiled = false,
+                            IsStronglyTyped = false,
+                            Name = "Python",
+                            Type = "Interpreted"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsCompiled = false,
+                            IsStronglyTyped = false,
+                            Name = "JavaScript",
+                            Type = "Scripting"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsCompiled = true,
+                            IsStronglyTyped = true,
+                            Name = "C++",
+                            Type = "Object-Oriented"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsCompiled = true,
+                            IsStronglyTyped = true,
+                            Name = "Go",
+                            Type = "Procedural"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsCompiled = false,
+                            IsStronglyTyped = false,
+                            Name = "Ruby",
+                            Type = "Scripting"
+                        });
                 });
 
             modelBuilder.Entity("Team4FinalProject.Models.TeamMember", b =>

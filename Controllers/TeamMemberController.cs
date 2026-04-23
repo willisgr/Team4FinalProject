@@ -23,7 +23,7 @@ namespace Team4FinalProject.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]TeamMember teamMember)
         {
-            if (_context.CreateTeamMember(teamMember)) {return Ok();}
+            if (_context.CreateTeamMember(teamMember)) {return Created();}
             return BadRequest();
         }
 
@@ -48,7 +48,7 @@ namespace Team4FinalProject.Controllers
         [HttpDelete("id")]
         public IActionResult Delete(int id)
         {
-            if (_context.DeleteTeamMemberById(id)) {return Ok();}
+            if (_context.DeleteTeamMemberById(id)) {return NoContent();}
             return BadRequest();
         }
     }

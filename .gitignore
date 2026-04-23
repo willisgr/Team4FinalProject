@@ -483,4 +483,3 @@ $RECYCLE.BIN/
 
 Properties/serviceDependencies.json
 Properties/serviceDependencies.local.json
-Migrations/*Initial*.cs
