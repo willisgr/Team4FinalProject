@@ -41,6 +41,11 @@ namespace Team4FinalProject.Data
         {
             return _context.Hobbies.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
+		public List<Hobby> GetFirstFiveHobbies()
+		{
+			return _context.Hobbies.Take(5).ToList();
+		}
+
 
         //Update
         public int? UpdateHobby(Hobby hobby)

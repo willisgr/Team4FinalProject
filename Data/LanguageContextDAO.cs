@@ -37,10 +37,15 @@ namespace Team4FinalProject.Data
             return _context.Languages.ToList();
         }
 
-        public Language GetLanguagebyId(int id)
+        public Language? GetLanguagebyId(int id)
         {
+			if (id == 0) { return null;}
             return _context.Languages.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
+		public List<Language> GetFirstFiveLanguages()
+		{
+			return _context.Languages.Take(5).ToList();
+		}
 
         //Update
         public int? UpdateLanguage(Language language)

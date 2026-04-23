@@ -37,10 +37,17 @@ namespace Team4FinalProject.Data
             return _context.Games.ToList();
         }
 
-        public Game GetGamebyId(int id)
+        public Game? GetGamebyId(int id)
         {
+            if (id == 0) { return null; }
             return _context.Games.Where(x => x.Id.Equals(id)).FirstOrDefault();
+
         }
+        public List<Game> GetFirstFiveGames()
+        {
+            return _context.Games.Take(5).ToList();
+        }
+
 
         //Update
         public int? UpdateGame(Game game)
