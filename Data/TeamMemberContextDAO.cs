@@ -11,6 +11,7 @@ namespace Team4FinalProject.Data
             _context = context;
         }
 
+        //Create
         public bool CreateTeamMember(TeamMember teamMember)
         {
             try
@@ -25,6 +26,7 @@ namespace Team4FinalProject.Data
             }
         }
 
+        //Read
         public TeamMember? GetTeamMemberByIdOrDefault(int id)
         {
             if (id == 0) {return null;}
@@ -36,6 +38,7 @@ namespace Team4FinalProject.Data
             return _context.TeamMembers.Take(5).ToList();
         }
 
+        //Delete
         public bool DeleteTeamMemberById(int id)
         {
             var teamMember = _context.TeamMembers.FirstOrDefault(x => x.Id == id);
@@ -53,6 +56,7 @@ namespace Team4FinalProject.Data
             }
         }
 
+        //Update
         public bool UpdateTeamMemberById(int id, TeamMember updatedTeamMember)
         {
             var teamMember = _context.TeamMembers.FirstOrDefault(x => x.Id == id);

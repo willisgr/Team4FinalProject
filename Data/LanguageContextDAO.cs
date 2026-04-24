@@ -12,78 +12,69 @@ namespace Team4FinalProject.Data
         }
 
         //Create
-        public int? AddLanguage(Language language)
+        public bool CreateLanguage(Language language)
         {
-            var languages = _context.Languages.Where(x => x.Name.Equals(language.Name) && x.Type.Equals(language.Type)).FirstOrDefault();
-
-            if (languages != null)
-                return null;
             try
             {
                 _context.Languages.Add(language);
                 _context.SaveChanges();
-                return 1;
+                return true;
             }
-            catch (Exception)
+            catch
             {
-                return 0;
+                return false;
             }
-            
         }
 
         //Read
-        public List<Language> GetAllLanguages()
+        public Language? GetLanguageByIdOrDefault(int id)
         {
-            return _context.Languages.ToList();
-        }
-
-        public Language? GetLanguagebyId(int id)
-        {
-			if (id == 0) { return null;}
+            if (id == 0) { return null; }
             return _context.Languages.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
-		public List<Language> GetFirstFiveLanguages()
-		{
-			return _context.Languages.Take(5).ToList();
-		}
+
+        public List<Language> GetFirstFiveLanguages()
+        {
+            return _context.Languages.Take(5).ToList();
+        }
 
         //Update
-        public int? UpdateLanguage(Language language)
+        public bool UpdateLanguageById(int id, Language updatedLanguage)
         {
-            var languageToUpdate = this.GetLanguagebyId(language.Id);
-            if (languageToUpdate == null)
-                return null;
-            languageToUpdate.Name = language.Name;
-            languageToUpdate.Type = language.Type;
-            languageToUpdate.IsCompiled = language.IsCompiled;
-            languageToUpdate.IsStronglyTyped = language.IsStronglyTyped;
+            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
+            if (language == null) return false;
+
+            language.Name = updatedLanguage.Name ?? language.Name;
+            language.Type = updatedLanguage.Type ?? language.Type;
+            language.IsStronglyTyped = updatedLanguage.IsStronglyTyped;
+            language.IsCompiled = updatedLanguage.IsCompiled;
 
             try
             {
-                _context.Languages.Update(languageToUpdate);
                 _context.SaveChanges();
-                return 1;
+                return true;
             }
-            catch (Exception)
+            catch
             {
-                return 0;
+                return false;
             }
         }
 
         // Delete
-        public int? RemoveLanguageById(int id)
+        public bool DeleteLanguageById(int id)
         {
-            var language = this.GetLanguagebyId(id);
-            if (language == null) return null;
+            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
+            if (language == null) return false;
+
             try
             {
                 _context.Languages.Remove(language);
                 _context.SaveChanges();
-                return 1;
+                return true;
             }
-            catch (Exception)
+            catch
             {
-                return 0;
+                return false;
             }
         }
 

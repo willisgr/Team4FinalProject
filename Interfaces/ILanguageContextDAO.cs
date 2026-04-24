@@ -5,17 +5,16 @@ namespace Team4FinalProject.Interfaces
     public interface ILanguageContextDAO
     {
         //Create
-        int? AddLanguage(Language language);
+        bool CreateLanguage(Language language);
 
         //Read
-        Language? GetLanguagebyId(int id);
-        List<Language> GetAllLanguages();
-		List<Language> GetFirstFiveLanguages();
+        Language? GetLanguageByIdOrDefault(int id);
+        List<Language> GetFirstFiveLanguages();
 
         // Update
-        int? UpdateLanguage(Language language);
+        bool UpdateLanguageById(int id, Language updatedLanguage);
 
-        // Delete
-        int? RemoveLanguageById(int id);
+        //Delete
+        bool DeleteLanguageById(int id);
     }
 }

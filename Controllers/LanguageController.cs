@@ -24,65 +24,37 @@ namespace Team4FinalProject.Controllers
         }
 
         //Create
-        // Still needs work?
         [HttpPost]
-        public IActionResult Post(Language language)
+        public IActionResult Post([FromBody] Language language)
         {
-            var result = _context.AddLanguage(language);
-
-            if (result == null)
-                return StatusCode(500, "Language already exists");
-            if (result == 0)
-            {
-                return StatusCode(500, "An error occurred while processing your request");
-            }
-            return Ok();
+            if (_context.CreateLanguage(language)) { return Created(); }
+            return BadRequest();
         }
 
         //Read
         [HttpGet]
-        public IActionResult GetLanguages()
+        public IActionResult Get(int id)
         {
-            return Ok(_context.GetAllLanguages());
-        }
-        [HttpGet("id")]
-        public IActionResult GetById(int id)
-        {
-            var language = _context.GetLanguagebyId(id);
-            {
-            if (language == null || id == 0)
-                return Ok(_context.GetFirstFiveLanguages());
-			}
+            var language = _context.GetLanguageByIdOrDefault(id);
+            if (language == null) { return Ok(_context.GetFirstFiveLanguages()); }
             return Ok(language);
         }
 
         //Update
         [HttpPut]
-        public IActionResult Put(Language language)
+        public IActionResult Put(int id, [FromBody] Language language)
         {
-            var result = _context.UpdateLanguage(language);
-            if (result == null)
-                return NotFound(language.Id);
-
-            if (result == 0)
-                return StatusCode(500, "An error occurred while processing your request");
-
-            return Ok();
+            if (_context.UpdateLanguageById(id, language)) { return Ok(); }
+            return BadRequest();
         }
 
         //Delete
         [HttpDelete]
+        [HttpDelete("id")]
         public IActionResult Delete(int id)
         {
-            var result = _context.RemoveLanguageById(id);
-            if (result == null)
-                return NotFound(id);
-
-            if (result == 0)
-                return StatusCode(500, "An error occurred while processing your request");
-
-            return Ok();
-
+            if (_context.DeleteLanguageById(id)) { return NoContent(); }
+            return BadRequest();
         }
     }
 }

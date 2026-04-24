@@ -29,16 +29,16 @@ namespace Team4FinalProject.Data
             builder.Entity<TeamMember>().HasData(
                 new TeamMember { Id = 1, FullName = "Grant Willis", Birthdate = new DateTime(2004, 10, 15), CollegeProgram = "BSIT", YearInProgram = "Junior"},
                 new TeamMember { Id = 2, FullName = "Robert Mays", Birthdate = new DateTime(1985, 7, 20), CollegeProgram = "MSIT", YearInProgram = "Second"},
-                new TeamMember { Id = 3, FullName = "William Boulle", Birthdate = new DateTime(1000, 1, 1), CollegeProgram = "", YearInProgram = ""}
+                new TeamMember { Id = 3, FullName = "William Boulle", Birthdate = new DateTime(2005, 9, 26), CollegeProgram = "BSIT", YearInProgram = "Second"}
             );
               builder.Entity<Language>().HasData(
-                new Language { Id = 1, Name = "C#", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
-				new Language { Id = 2, Name = "Java", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
-				new Language { Id = 3, Name = "Python", Type = "Interpreted", IsStronglyTyped = false, IsCompiled = false},
-				new Language { Id = 4, Name = "JavaScript", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false},
-				new Language { Id = 5, Name = "C++", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true},
-				new Language { Id = 6, Name = "Go", Type = "Procedural", IsStronglyTyped = true, IsCompiled = true},
-				new Language { Id = 7, Name = "Ruby", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false}
+                new Language { Id = 1, Name = "C#", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true },
+				new Language { Id = 2, Name = "Java", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true },
+				new Language { Id = 3, Name = "Python", Type = "Interpreted", IsStronglyTyped = false, IsCompiled = false },
+				new Language { Id = 4, Name = "JavaScript", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false },
+				new Language { Id = 5, Name = "C++", Type = "Object-Oriented", IsStronglyTyped = true, IsCompiled = true },
+				new Language { Id = 6, Name = "Go", Type = "Procedural", IsStronglyTyped = true, IsCompiled = true },
+				new Language { Id = 7, Name = "Ruby", Type = "Scripting", IsStronglyTyped = false, IsCompiled = false }
 				
             );
         }
