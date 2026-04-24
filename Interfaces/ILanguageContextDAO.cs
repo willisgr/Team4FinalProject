@@ -11,7 +11,7 @@ namespace Team4FinalProject.Interfaces
         Language? GetLanguageByIdOrDefault(int id);
         List<Language> GetFirstFiveLanguages();
 
-        // Update
+        //Update
         bool UpdateLanguageById(int id, Language updatedLanguage);
 
         //Delete

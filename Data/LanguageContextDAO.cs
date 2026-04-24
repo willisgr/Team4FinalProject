@@ -1,5 +1,6 @@
 using Team4FinalProject.Interfaces;
 using Team4FinalProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Team4FinalProject.Data
 {
@@ -38,29 +39,7 @@ namespace Team4FinalProject.Data
             return _context.Languages.Take(5).ToList();
         }
 
-        //Update
-        public bool UpdateLanguageById(int id, Language updatedLanguage)
-        {
-            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
-            if (language == null) return false;
-
-            language.Name = updatedLanguage.Name ?? language.Name;
-            language.Type = updatedLanguage.Type ?? language.Type;
-            language.IsStronglyTyped = updatedLanguage.IsStronglyTyped;
-            language.IsCompiled = updatedLanguage.IsCompiled;
-
-            try
-            {
-                _context.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        // Delete
+        //Delete
         public bool DeleteLanguageById(int id)
         {
             var language = _context.Languages.FirstOrDefault(x => x.Id == id);
@@ -78,5 +57,26 @@ namespace Team4FinalProject.Data
             }
         }
 
+        //Update
+        public bool UpdateLanguageById(int id, Language updatedLanguage)
+        {
+            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
+            if (language == null) return false;
+
+            language.Name = updatedLanguage.Name ?? language.Name;
+            language.Type = updatedLanguage.Type != default ? updatedLanguage.Type : language.Type;
+            language.IsStronglyTyped = updatedLanguage.IsStronglyTyped = language.IsStronglyTyped;
+            language.IsCompiled = updatedLanguage.IsCompiled = language.IsCompiled;
+
+            try
+            {
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

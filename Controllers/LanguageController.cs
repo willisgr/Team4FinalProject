@@ -1,29 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Team4FinalProject.Data;
 using Team4FinalProject.Interfaces;
 using Team4FinalProject.Models;
 
-
 namespace Team4FinalProject.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     public class LanguageController : ControllerBase
     {
-        private readonly ILogger<LanguageController> _logger;
         private readonly ILanguageContextDAO _context;
-        public LanguageController(ILogger<LanguageController> logger, ILanguageContextDAO context)
+        private readonly ILogger<LanguageController> _logger;
+
+        public LanguageController(ILanguageContextDAO context, ILogger<LanguageController> logger)
         {
-            _logger = logger;
             _context = context;
+            _logger = logger;
         }
 
-        //Create
+        // Create
         [HttpPost]
         public IActionResult Post([FromBody] Language language)
         {
@@ -31,8 +27,8 @@ namespace Team4FinalProject.Controllers
             return BadRequest();
         }
 
-        //Read
-        [HttpGet]
+        // Read
+        [HttpGet("id")]
         public IActionResult Get(int id)
         {
             var language = _context.GetLanguageByIdOrDefault(id);
@@ -40,16 +36,15 @@ namespace Team4FinalProject.Controllers
             return Ok(language);
         }
 
-        //Update
-        [HttpPut]
+        // Update
+        [HttpPut("id")]
         public IActionResult Put(int id, [FromBody] Language language)
         {
             if (_context.UpdateLanguageById(id, language)) { return Ok(); }
             return BadRequest();
         }
 
-        //Delete
-        [HttpDelete]
+        // Delete
         [HttpDelete("id")]
         public IActionResult Delete(int id)
         {
