@@ -325,10 +325,10 @@ namespace Team4FinalProject.Migrations
                         new
                         {
                             Id = 3,
-                            Birthdate = new DateTime(1000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CollegeProgram = "",
+                            Birthdate = new DateTime(2005, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "BSIT",
                             FullName = "William Boulle",
-                            YearInProgram = ""
+                            YearInProgram = "Second"
                         });
                 });
 #pragma warning restore 612, 618
